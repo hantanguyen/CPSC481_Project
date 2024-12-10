@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Workout Plan</title>
+</head>
+<body>
+    <h1>Your Personalized Workout Plan</h1>
+    {% if workout_plan %}
+        <div>
+            {% for day, exercises in workout_plan.items() %}
+                <h3>Day {{ day }}:</h3>
+                {% if exercises == 'Rest Day' %}
+                    <p>Rest Day</p>
+                {% else %}
+                    <ul>
+                        {% for exercise in exercises %}
+                            <li>
+                                <strong>{{ exercise['Title'] }}</strong><br>
+                                Body Part: {{ exercise['BodyPart'] }}<br>
+                                Equipment: {{ exercise['Equipment'] }}<br>
+                                Predicted Body Part: {{ exercise['Predicted_BodyPart'] }}<br>
+                                Rating: {{ exercise['Rating'] }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No workout plan available.</p>
+    {% endif %}
+</body>
+</html>
