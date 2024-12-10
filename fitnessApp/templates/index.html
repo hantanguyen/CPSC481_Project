@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workout Plan Generator</title>
-  <!-- Adjusted CSS link to reflect static folder structure -->
+  <title>Outbreak Fitness</title>
   <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
-  <div class="App"> <!-- Main container with flexbox alignment -->
+  <div id="loading-screen">
+    <img src="{{ url_for('static', filename='loading.gif') }}" alt="Loading...">
+  </div>
+  <div class="App" style="display: none;">
     <div class="form-container">
       <h1 class="form-title">Enter Your Workout Preferences</h1>
-      
       <form method="POST" class="fitness-form">
         <div class="form-group">
           <label for="fitness_level">Fitness Level:</label>
@@ -20,15 +22,14 @@
             <option value="intermediate">Intermediate</option>
           </select>
         </div>
-        
         <div class="form-group">
           <label for="num_days">Number of Workout Days:</label>
           <input type="number" name="num_days" id="num_days" min="3" max="6" required>
         </div>
-        
         <button type="submit" class="submit-btn">Generate Workout Plan</button>
       </form>
     </div>
   </div>
+  <script src="/static/script.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Plan</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='workout_plan.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
     <h1>Workout Plan</h1>
@@ -50,16 +51,14 @@
             {% endfor %}
         </form>
     </div>
-
     <script>
-        // This script will highlight the row when the checkbox is checked
         document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
                 const row = checkbox.closest('tr');
                 if (checkbox.checked) {
-                    row.style.backgroundColor = '#4d5d5d'; // Change background color when completed
+                    row.style.backgroundColor = '#4d5d5d';
                 } else {
-                    row.style.backgroundColor = ''; // Reset the background color when unchecked
+                    row.style.backgroundColor = '';
                 }
             });
         });

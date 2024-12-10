@@ -1,13 +1,11 @@
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
-  /* General Styles */
+
   body {
-    background-color: #0f1012; /* Dark background */
+    background-color: #0f1012;
     color: #ffffff;
     font-family: "Roboto Condensed", sans-serif;
     min-height: 100vh;
@@ -17,7 +15,6 @@
     padding: 20px;
   }
   
-  /* Title Styling */
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -27,7 +24,6 @@
     text-align: center;
   }
   
-  /* Workout Plan Container */
   .workout-plan {
     width: 80%;
     max-width: 1200px;
@@ -48,7 +44,6 @@
     text-align: center;
   }
   
-  /* Rest Day Styling */
   .rest-day {
     background-color: #2d2d2d;
     padding: 20px;
@@ -58,7 +53,6 @@
     margin-bottom: 40px;
   }
   
-  /* Table Styling */
   .workout-day table {
     width: 100%;
     border-collapse: collapse;
@@ -108,7 +102,6 @@
     text-align: center;
   }
   
-  /* Responsive Styles */
   @media (max-width: 768px) {
     .workout-day h2 {
       font-size: 1.6rem;
