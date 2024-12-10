@@ -1,0 +1,126 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* General Styles */
+  body {
+    background-color: #0f1012; /* Dark background */
+    color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Title Styling */
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  /* Workout Plan Container */
+  .workout-plan {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .workout-day {
+    background-color: #141516;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
+  
+  .workout-day h2 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Rest Day Styling */
+  .rest-day {
+    background-color: #2d2d2d;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+  
+  /* Table Styling */
+  .workout-day table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #1f2124;
+  }
+  
+  .workout-day thead {
+    background: linear-gradient(90deg, #770000, #ff0000);
+  }
+  
+  .workout-day thead th {
+    color: #ffffff;
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .workout-day tbody tr:nth-child(even) {
+    background-color: #2a2c2f;
+  }
+  
+  .workout-day tbody tr:nth-child(odd) {
+    background-color: #141516;
+  }
+  
+  .workout-day tbody tr:hover {
+    background-color: #333639;
+  }
+  
+  .workout-day tbody td {
+    padding: 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    border-bottom: 1px solid #ff0000;
+    text-align: center;
+  }
+  
+  .workout-day tbody td:first-child {
+    text-align: left;
+  }
+  
+  .workout-day tbody td:last-child {
+    text-align: center;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .workout-day h2 {
+      font-size: 1.6rem;
+    }
+  
+    .workout-day table {
+      font-size: 0.9rem;
+    }
+  
+    .workout-day thead th,
+    .workout-day tbody td {
+      padding: 10px;
+    }
+  }
+  

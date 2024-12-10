@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personalized Workout Plan</title>
+    <title>Workout Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='workout_plan.css') }}">
 </head>
 <body>
-    <h1>Your Personalized Workout Plan</h1>
-    {% if workout_plan %}
-        <div>
-            {% for day, exercises in workout_plan.items() %}
-                <h3>Day {{ day }}:</h3>
-                {% if exercises == 'Rest Day' %}
-                    <p>Rest Day</p>
-                {% else %}
-                    <ul>
-                        {% for exercise in exercises %}
-                            <li>
-                                <strong>{{ exercise['Title'] }}</strong><br>
-                                Body Part: {{ exercise['BodyPart'] }}<br>
-                                Equipment: {{ exercise['Equipment'] }}<br>
-                                Predicted Body Part: {{ exercise['Predicted_BodyPart'] }}<br>
-                                Rating: {{ exercise['Rating'] }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+    <h1>Workout Plan</h1>
+    <div class="workout-plan">
+        <form method="POST" action="{{ url_for('index') }}">
+            {% for day, plan in workout_plan.items() %}
+                <div class="workout-day">
+                    <h2>{{ plan['message'] }}</h2>
+                    
+                    {% if plan['type'] == 'rest' %}
+                        <div class="rest-day">
+                            <p>{{ plan['message'] }}</p>
+                        </div>
+                    {% else %}
+                        <div class="workout-exercises">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Workout Name</th>
+                                        <th>Body Part Targeted</th>
+                                        <th>Equipment Needed</th>
+                                        <th>Difficulty Rating</th>
+                                        <th>Completed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for exercise in plan['exercises'] %}
+                                        <tr>
+                                            <td>{{ exercise['Title'] }}</td>
+                                            <td>{{ exercise['BodyPart'] }}</td>
+                                            <td>{{ exercise['Equipment'] }}</td>
+                                            <td>{{ exercise['Rating'] }}</td>
+                                            <td>
+                                                <input type="checkbox" name="completed_{{ exercise['Title'] }}" value="1">
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+                </div>
             {% endfor %}
-        </div>
-    {% else %}
-        <p>No workout plan available.</p>
-    {% endif %}
+        </form>
+    </div>
+
+    <script>
+        // This script will highlight the row when the checkbox is checked
+        document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const row = checkbox.closest('tr');
+                if (checkbox.checked) {
+                    row.style.backgroundColor = '#4d5d5d'; // Change background color when completed
+                } else {
+                    row.style.backgroundColor = ''; // Reset the background color when unchecked
+                }
+            });
+        });
+    </script>
 </body>
 </html>
